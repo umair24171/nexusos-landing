@@ -64,7 +64,7 @@ export default function DocsPage() {
                     <span className="code-keyword">import</span> <span className="code-keyword">{'{'}</span> <span className="code-property">NexusAgent</span> <span className="code-keyword">{'}'}</span> <span className="code-keyword">from</span> <span className="code-string">'nexusos-sdk'</span><span className="code-keyword">;</span>
                   </div>
                   <div className="mt-4">
-                    <span className="code-keyword">const</span> <span className="code-property">agent</span> <span className="code-keyword">=</span> <span className="code-keyword">new</span> <span className="code-builtin">NexusAgent</span><span className="code-keyword">({'</span>
+                    <span className="code-keyword">const</span> <span className="code-property">agent</span> <span className="code-keyword">=</span> <span className="code-keyword">new</span> <span className="code-builtin">NexusAgent</span><span className="code-keyword">(&#123;&#39;</span>
                   </div>
                   <div className="ml-4">
                     <span className="code-property">apiKey</span><span className="code-keyword">:</span> <span className="code-string">'nxs_live_xxxx'</span><span className="code-keyword">,</span>
