@@ -107,7 +107,7 @@ export default function Home() {
                   <span className="code-keyword">:</span> <span className="code-string">'nexus_agt_xxxx'</span>
                 </div>
                 <div>
-                  <span className="code-keyword">});</span>
+                  <span className="code-keyword">&#125;);</span>
                 </div>
                 <div className="mt-4">
                   <span className="code-keyword">await</span>{' '}
@@ -125,7 +125,7 @@ export default function Home() {
                   <span className="code-keyword">:</span> <span className="code-number">1240</span>
                 </div>
                 <div>
-                  <span className="code-keyword">});</span>
+                  <span className="code-keyword">&#125;);</span>
                 </div>
                 <div className="mt-4">
                   <span className="code-keyword">const</span>{' '}
@@ -302,7 +302,7 @@ export default function Home() {
                     <span className="code-string">'nexus_agt_xxxx'</span>
                   </div>
                   <div>
-                    <span className="code-keyword">});</span>
+                    <span className="code-keyword">&#125;);</span>
                   </div>
                   <div className="mt-4">
                     <span className="code-comment">// Auto-trace any function</span>
