@@ -96,7 +96,7 @@ export default function Home() {
                   <span className="code-keyword">=</span>{' '}
                   <span className="code-keyword">new</span>{' '}
                   <span className="code-builtin">NexusAgent</span>
-                  <span className="code-keyword">({'</span>
+                  <span className="code-keyword">(&#123;&#39;</span>
                 </div>
                 <div className="ml-4">
                   <span className="code-property">apiKey</span>
@@ -114,7 +114,7 @@ export default function Home() {
                   <span className="code-property">agent</span>
                   <span className="code-keyword">.</span>
                   <span className="code-function">logLLMCall</span>
-                  <span className="code-keyword">({'</span>
+                  <span className="code-keyword">(&#123;&#39;</span>
                 </div>
                 <div className="ml-4">
                   <span className="code-property">model</span>
@@ -289,7 +289,7 @@ export default function Home() {
                     <span className="code-keyword">=</span>{' '}
                     <span className="code-keyword">new</span>{' '}
                     <span className="code-builtin">NexusAgent</span>
-                    <span className="code-keyword">({'</span>
+                    <span className="code-keyword">(&#123;&#39;</span>
                   </div>
                   <div className="ml-4">
                     <span className="code-property">apiKey</span>
