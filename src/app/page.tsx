@@ -8,7 +8,6 @@ import {
   Zap,
   Shield,
   AlertTriangle,
-  Zap as ZapIcon,
   AlertCircle,
   Eye,
   Github,
@@ -21,237 +20,299 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState('nodejs')
 
   return (
-    <div className="bg-nexus-dark">
-      {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-nexus-dark/80 backdrop-blur border-b border-nexus-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <Link href="/" className="flex items-center gap-2 font-bold text-xl text-white">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center text-white font-bold">
-                N
+    <div className="bg-nexus-dark min-h-screen">
+
+      {/* ══════════════════════════════
+          NAV
+      ══════════════════════════════ */}
+      <nav className="sticky top-0 z-50 bg-nexus-dark/90 backdrop-blur border-b border-nexus-border">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="flex justify-between items-center h-14">
+
+            {/* Logo */}
+            <Link href="/" className="flex items-center gap-2.5">
+              <div className="w-7 h-7 border border-nexus-cyan flex items-center justify-center">
+                <span className="font-mono text-nexus-cyan text-xs font-bold">NX</span>
               </div>
-              NexusOS
+              <span className="font-mono text-xs tracking-[0.2em] text-white uppercase">nexusos</span>
             </Link>
 
+            {/* Links */}
             <div className="hidden md:flex items-center gap-8">
-              <a href="#features" className="text-nexus-text hover:text-white transition-colors">
-                Features
-              </a>
-              <Link href="/pricing" className="text-nexus-text hover:text-white transition-colors">
-                Pricing
-              </Link>
-              <Link href="/docs" className="text-nexus-text hover:text-white transition-colors">
-                Docs
-              </Link>
+              <a href="#features" className="nav-link">Features</a>
+              <Link href="/pricing"  className="nav-link">Pricing</Link>
+              <Link href="/docs"     className="nav-link">Docs</Link>
             </div>
 
-            <Link href="#" className="btn-primary">
+            {/* CTA */}
+            <Link
+              href="https://nexusos-dashboard.vercel.app/register"
+              className="btn-primary text-xs py-2 px-5"
+            >
               Get Started Free
             </Link>
           </div>
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="relative overflow-hidden bg-nexus-dark pt-20 pb-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-              The Control Tower for Your
-              <br />
-              <span className="gradient-text">AI Agents</span>
-            </h1>
-            <p className="text-lg md:text-xl text-nexus-text max-w-3xl mx-auto mb-8">
-              Ship AI agents with confidence. Get cryptographic identity, real-time audit logs,
-              kill switches, and anomaly detection — in 3 lines of code.
-            </p>
+      {/* ══════════════════════════════
+          HERO
+      ══════════════════════════════ */}
+      <section className="relative overflow-hidden dot-grid">
+        {/* Subtle radial fade over grid */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-nexus-dark pointer-events-none" />
+        {/* Cyan ambient glow top-center */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-nexus-cyan/[0.04] blur-[80px] pointer-events-none" />
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
-              <Link href="#" className="btn-primary text-lg">
-                Get Started Free <ArrowRight className="w-5 h-5 ml-2" />
-              </Link>
-              <Link href="/docs" className="btn-outline text-lg">
-                View Documentation
-              </Link>
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-24 pb-28 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+
+            {/* Left: headline + CTAs */}
+            <div className="animate-enter">
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 border border-nexus-border px-3 py-1 mb-8">
+                <span className="w-1.5 h-1.5 rounded-full bg-nexus-cyan live-dot" />
+                <span className="font-mono text-[10px] uppercase tracking-widest text-nexus-cyan">
+                  Now in Public Beta
+                </span>
+              </div>
+
+              <h1 className="font-mono text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] mb-6">
+                The Control Tower<br />
+                for Your{' '}
+                <span className="gradient-text">AI Agents</span>
+              </h1>
+
+              <p className="font-sans text-lg text-nexus-text leading-relaxed mb-8 max-w-lg">
+                Ship AI agents with confidence. Cryptographic identity, real-time audit logs,
+                kill switches, and anomaly detection — in 3 lines of code.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-3 mb-6">
+                <Link
+                  href="https://nexusos-dashboard.vercel.app/register"
+                  className="btn-primary"
+                >
+                  Get Started Free
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Link>
+                <Link href="/docs" className="btn-outline">
+                  View Docs
+                </Link>
+              </div>
+
+              <p className="font-mono text-[11px] text-nexus-muted">
+                Free plan available — no credit card required
+              </p>
             </div>
 
-            <p className="text-sm text-nexus-muted">
-              Free plan available — no credit card required
-            </p>
-          </div>
+            {/* Right: terminal */}
+            <div className="animate-enter" style={{ animationDelay: '120ms' }}>
+              <div className="terminal-window shadow-cyan-glow">
+                <div className="terminal-header">
+                  <div className="terminal-dot red" />
+                  <div className="terminal-dot yellow" />
+                  <div className="terminal-dot green" />
+                  <span className="font-mono text-[11px] text-nexus-muted ml-2">nexus-agent.js</span>
+                  {/* Live status */}
+                  <div className="ml-auto flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-nexus-cyan live-dot" />
+                    <span className="font-mono text-[10px] text-nexus-cyan uppercase tracking-widest">live</span>
+                  </div>
+                </div>
+                <div className="terminal-content">
+                  <div>
+                    <span className="code-keyword">const</span>{' '}
+                    <span className="code-property">agent</span>{' '}
+                    <span className="code-keyword">=</span>{' '}
+                    <span className="code-keyword">new</span>{' '}
+                    <span className="code-builtin">NexusAgent</span>
+                    <span className="code-keyword">(&#123;</span>
+                  </div>
+                  <div className="ml-4">
+                    <span className="code-property">apiKey</span>
+                    <span className="code-keyword">:</span>{' '}
+                    <span className="code-string">'nxs_live_xxxx'</span>,
+                  </div>
+                  <div className="ml-4">
+                    <span className="code-property">agentId</span>
+                    <span className="code-keyword">:</span>{' '}
+                    <span className="code-string">'nexus_agt_xxxx'</span>
+                  </div>
+                  <div><span className="code-keyword">&#125;);</span></div>
 
-          {/* Terminal Code Block */}
-          <div className="max-w-2xl mx-auto">
-            <div className="terminal-window">
-              <div className="terminal-header">
-                <div className="terminal-dot red" />
-                <div className="terminal-dot yellow" />
-                <div className="terminal-dot green" />
-                <span className="text-xs text-nexus-muted ml-2">nexus-agent.js</span>
+                  <div className="mt-4">
+                    <span className="code-keyword">await</span>{' '}
+                    <span className="code-property">agent</span>
+                    <span className="code-keyword">.</span>
+                    <span className="code-function">logLLMCall</span>
+                    <span className="code-keyword">(&#123;</span>
+                  </div>
+                  <div className="ml-4">
+                    <span className="code-property">model</span>
+                    <span className="code-keyword">:</span>{' '}
+                    <span className="code-string">'gpt-4'</span>,
+                  </div>
+                  <div className="ml-4">
+                    <span className="code-property">tokensUsed</span>
+                    <span className="code-keyword">:</span>{' '}
+                    <span className="code-number">1240</span>
+                  </div>
+                  <div><span className="code-keyword">&#125;);</span></div>
+
+                  <div className="mt-4">
+                    <span className="code-keyword">const</span>{' '}
+                    <span className="code-property">alive</span>{' '}
+                    <span className="code-keyword">=</span>{' '}
+                    <span className="code-keyword">await</span>{' '}
+                    <span className="code-property">agent</span>
+                    <span className="code-keyword">.</span>
+                    <span className="code-function">isAlive</span>
+                    <span className="code-keyword">();</span>
+                    {' '}
+                    <span className="code-comment">// kill switch</span>
+                  </div>
+
+                  <div className="mt-4 flex items-center gap-2 text-nexus-muted text-[11px]">
+                    <span className="text-nexus-cyan">$</span>
+                    <span>agent registered in</span>
+                    <span className="text-nexus-green">142ms</span>
+                    <span className="cursor-blink" />
+                  </div>
+                </div>
               </div>
-              <div className="terminal-content">
-                <div>
-                  <span className="code-keyword">const</span>{' '}
-                  <span className="code-property">agent</span>{' '}
-                  <span className="code-keyword">=</span>{' '}
-                  <span className="code-keyword">new</span>{' '}
-                  <span className="code-builtin">NexusAgent</span>
-                  <span className="code-keyword">(&#123;&#39;</span>
-                </div>
-                <div className="ml-4">
-                  <span className="code-property">apiKey</span>
-                  <span className="code-keyword">:</span> <span className="code-string">'nxs_live_xxxx'</span>,
-                </div>
-                <div className="ml-4">
-                  <span className="code-property">agentId</span>
-                  <span className="code-keyword">:</span> <span className="code-string">'nexus_agt_xxxx'</span>
-                </div>
-                <div>
-                  <span className="code-keyword">&#125;);</span>
-                </div>
-                <div className="mt-4">
-                  <span className="code-keyword">await</span>{' '}
-                  <span className="code-property">agent</span>
-                  <span className="code-keyword">.</span>
-                  <span className="code-function">logLLMCall</span>
-                  <span className="code-keyword">(&#123;&#39;</span>
-                </div>
-                <div className="ml-4">
-                  <span className="code-property">model</span>
-                  <span className="code-keyword">:</span> <span className="code-string">'gpt-4'</span>,
-                </div>
-                <div className="ml-4">
-                  <span className="code-property">tokensUsed</span>
-                  <span className="code-keyword">:</span> <span className="code-number">1240</span>
-                </div>
-                <div>
-                  <span className="code-keyword">&#125;);</span>
-                </div>
-                <div className="mt-4">
-                  <span className="code-keyword">const</span>{' '}
-                  <span className="code-property">alive</span>{' '}
-                  <span className="code-keyword">=</span>{' '}
-                  <span className="code-keyword">await</span>{' '}
-                  <span className="code-property">agent</span>
-                  <span className="code-keyword">.</span>
-                  <span className="code-function">isAlive</span>
-                  <span className="code-keyword">();</span> <span className="code-comment">// Kill switch</span>
-                </div>
+
+              {/* Stats row below terminal */}
+              <div className="grid grid-cols-3 gap-3 mt-4">
+                {[
+                  { label: "Agents Monitored", value: "12,400+" },
+                  { label: "Logs Processed",   value: "84M+"    },
+                  { label: "Kill Switches",     value: "99.9%"   },
+                ].map(({ label, value }) => (
+                  <div key={label} className="border border-nexus-border p-3 text-center">
+                    <p className="font-mono text-lg font-bold text-nexus-cyan">{value}</p>
+                    <p className="font-mono text-[9px] uppercase tracking-widest text-nexus-muted mt-0.5">
+                      {label}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Problem Section */}
-      <section className="py-20 bg-nexus-darker border-y border-nexus-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-16">
-            Shipping AI agents without NexusOS?
-          </h2>
+      {/* ══════════════════════════════
+          PROBLEM SECTION
+      ══════════════════════════════ */}
+      <section className="py-20 border-y border-nexus-border bg-nexus-darker">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <p className="font-mono text-[10px] uppercase tracking-widest text-nexus-muted mb-3">The Problem</p>
+            <h2 className="font-mono text-3xl md:text-4xl font-bold text-white">
+              Shipping without NexusOS?
+            </h2>
+          </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-6">
             {[
               {
                 icon: Eye,
                 title: 'No Visibility',
-                description:
-                  'You have no idea what your agents are doing. No logs, no traces, no way to debug when things go wrong.',
+                description: 'You have no idea what your agents are doing. No logs, no traces, no way to debug when things go wrong.',
               },
               {
                 icon: AlertCircle,
                 title: 'No Control',
-                description:
-                  'A rogue agent can keep running indefinitely. There\'s no kill switch, no pause, no rate limiting.',
+                description: "A rogue agent can run indefinitely. No kill switch, no pause, no rate limiting. It's your API bill.",
               },
               {
                 icon: AlertTriangle,
                 title: 'No Audit Trail',
-                description:
-                  'When something goes wrong, you have nothing. No evidence, no compliance records, no forensics.',
+                description: "When something goes wrong, you have nothing. No evidence, no compliance records, no forensics.",
               },
-            ].map((problem, index) => (
-              <div
-                key={index}
-                className="p-8 rounded-lg border border-red-900/30 bg-red-950/10 hover:border-red-700/50 transition-all"
-              >
-                <problem.icon className="w-8 h-8 text-red-500 mb-4" />
-                <h3 className="text-xl font-semibold text-white mb-3">{problem.title}</h3>
-                <p className="text-nexus-text">{problem.description}</p>
+            ].map((p, i) => (
+              <div key={i} className="problem-card">
+                <p.icon className="w-7 h-7 text-nexus-red mb-4 opacity-80" />
+                <h3 className="font-mono text-base font-semibold text-white mb-2">{p.title}</h3>
+                <p className="font-sans text-sm text-nexus-text leading-relaxed">{p.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Features Section */}
+      {/* ══════════════════════════════
+          FEATURES
+      ══════════════════════════════ */}
       <section id="features" className="py-20 bg-nexus-dark">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-16">
-            Everything you need to govern AI agents
-          </h2>
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <p className="font-mono text-[10px] uppercase tracking-widest text-nexus-muted mb-3">Features</p>
+            <h2 className="font-mono text-3xl md:text-4xl font-bold text-white">
+              Everything to govern AI agents
+            </h2>
+          </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
               {
                 icon: Lock,
-                title: 'Cryptographic Agent Identity',
-                description:
-                  'Every agent gets a unique cryptographic identity. Impossible to spoof, impossible to impersonate.',
+                title: 'Cryptographic Identity',
+                description: 'Every agent gets a unique cryptographic identity. Impossible to spoof, impossible to impersonate.',
               },
               {
                 icon: ScrollText,
                 title: 'Real-Time Audit Logs',
-                description:
-                  'Every action your agent takes is logged immutably with a tamper-proof hash chain. Full forensics, always.',
+                description: 'Every action logged immutably with a tamper-proof hash chain. Full forensics, always.',
               },
               {
                 icon: Zap,
                 title: 'Kill Switch',
-                description:
-                  'One click to stop a rogue agent dead in its tracks. Agents check in; if killed, the SDK halts immediately.',
+                description: 'One click to stop a rogue agent. Agents check in on every action; SDK halts immediately if killed.',
               },
               {
                 icon: Shield,
                 title: 'Permission Scoping',
-                description:
-                  'Define exactly which tools, domains, and models an agent can use. Block everything else automatically.',
+                description: 'Define which tools, domains, and models an agent can use. Block everything else automatically.',
               },
               {
                 icon: AlertTriangle,
                 title: 'Anomaly Detection',
-                description:
-                  'Rate exceeded, unknown tool used, blocked domain called — get alerted in real-time before things escalate.',
+                description: 'Rate exceeded, unknown tool, blocked domain — real-time alerts before things escalate.',
               },
               {
                 icon: ChevronRight,
                 title: 'SDK in 3 Lines',
-                description:
-                  'npm install nexusos-sdk and you\'re live. Works with LangChain, OpenAI, AutoGPT, or any custom agent.',
+                description: "npm install nexusos-sdk and you're live. LangChain, OpenAI, AutoGPT, custom — we support all.",
               },
-            ].map((feature, index) => (
-              <div key={index} className="feature-card group">
-                <feature.icon className="w-10 h-10 text-blue-500 mb-4 group-hover:text-blue-400 transition-colors" />
-                <h3 className="text-lg font-semibold text-white mb-2">{feature.title}</h3>
-                <p className="text-nexus-text text-sm">{feature.description}</p>
+            ].map((f, i) => (
+              <div key={i} className="feature-card group">
+                <f.icon className="w-8 h-8 text-nexus-cyan mb-4 opacity-80 group-hover:opacity-100 transition-opacity" />
+                <h3 className="font-mono text-sm font-semibold text-white mb-2">{f.title}</h3>
+                <p className="font-sans text-sm text-nexus-text leading-relaxed">{f.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Code Snippet Section */}
+      {/* ══════════════════════════════
+          CODE EXAMPLES
+      ══════════════════════════════ */}
       <section className="py-20 bg-nexus-darker border-y border-nexus-border">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-white text-center mb-4">
-            Integrate in minutes, not days
-          </h2>
-          <p className="text-center text-nexus-text mb-12">
-            Copy-paste ready examples for your language of choice
-          </p>
+        <div className="max-w-4xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <p className="font-mono text-[10px] uppercase tracking-widest text-nexus-muted mb-3">Integration</p>
+            <h2 className="font-mono text-3xl font-bold text-white mb-2">
+              Integrate in minutes, not days
+            </h2>
+            <p className="font-sans text-nexus-text text-sm">Copy-paste ready for your language of choice</p>
+          </div>
 
-          <div className="flex gap-4 mb-8 border-b border-nexus-border">
-            {['nodejs', 'python'].map((tab) => (
+          {/* Tab bar */}
+          <div className="flex gap-0 mb-0 border-b border-nexus-border">
+            {['nodejs', 'python'].map(tab => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
@@ -267,7 +328,7 @@ export default function Home() {
               <div className="terminal-dot red" />
               <div className="terminal-dot yellow" />
               <div className="terminal-dot green" />
-              <span className="text-xs text-nexus-muted ml-2">
+              <span className="font-mono text-[11px] text-nexus-muted ml-2">
                 {activeTab === 'nodejs' ? 'agent.js' : 'agent.py'}
               </span>
             </div>
@@ -275,8 +336,10 @@ export default function Home() {
               {activeTab === 'nodejs' ? (
                 <>
                   <div>
-                    <span className="code-keyword">const</span> <span className="code-keyword">{'{'}</span>{' '}
-                    <span className="code-property">NexusAgent</span> <span className="code-keyword">{'}'}</span>{' '}
+                    <span className="code-keyword">const</span>{' '}
+                    <span className="code-keyword">{'{'}</span>{' '}
+                    <span className="code-property">NexusAgent</span>{' '}
+                    <span className="code-keyword">{'}'}</span>{' '}
                     <span className="code-keyword">=</span>{' '}
                     <span className="code-function">require</span>
                     <span className="code-keyword">('</span>
@@ -289,7 +352,7 @@ export default function Home() {
                     <span className="code-keyword">=</span>{' '}
                     <span className="code-keyword">new</span>{' '}
                     <span className="code-builtin">NexusAgent</span>
-                    <span className="code-keyword">(&#123;&#39;</span>
+                    <span className="code-keyword">(&#123;</span>
                   </div>
                   <div className="ml-4">
                     <span className="code-property">apiKey</span>
@@ -301,9 +364,7 @@ export default function Home() {
                     <span className="code-keyword">:</span>{' '}
                     <span className="code-string">'nexus_agt_xxxx'</span>
                   </div>
-                  <div>
-                    <span className="code-keyword">&#125;);</span>
-                  </div>
+                  <div><span className="code-keyword">&#125;);</span></div>
                   <div className="mt-4">
                     <span className="code-comment">// Auto-trace any function</span>
                   </div>
@@ -318,7 +379,8 @@ export default function Home() {
                     <span className="code-keyword">(</span>
                     <span className="code-string">'search_news'</span>
                     <span className="code-keyword">,</span>{' '}
-                    <span className="code-keyword">async</span> <span className="code-keyword">() =&gt;</span>{' '}
+                    <span className="code-keyword">async</span>{' '}
+                    <span className="code-keyword">() =&gt;</span>{' '}
                     <span className="code-keyword">{'{'}</span>
                   </div>
                   <div className="ml-4">
@@ -337,12 +399,14 @@ export default function Home() {
                     <span className="code-comment">// Kill switch check</span>
                   </div>
                   <div>
-                    <span className="code-keyword">if</span> <span className="code-keyword">(!</span>
+                    <span className="code-keyword">if</span>{' '}
+                    <span className="code-keyword">(!</span>
                     <span className="code-keyword">await</span>{' '}
                     <span className="code-property">agent</span>
                     <span className="code-keyword">.</span>
                     <span className="code-function">isAlive</span>
-                    <span className="code-keyword">())</span> <span className="code-property">process</span>
+                    <span className="code-keyword">())</span>{' '}
+                    <span className="code-property">process</span>
                     <span className="code-keyword">.</span>
                     <span className="code-function">exit</span>
                     <span className="code-keyword">(</span>
@@ -353,11 +417,14 @@ export default function Home() {
               ) : (
                 <>
                   <div>
-                    <span className="code-keyword">from</span> <span className="code-property">nexusos</span>{' '}
-                    <span className="code-keyword">import</span> <span className="code-builtin">NexusAgent</span>
+                    <span className="code-keyword">from</span>{' '}
+                    <span className="code-property">nexusos</span>{' '}
+                    <span className="code-keyword">import</span>{' '}
+                    <span className="code-builtin">NexusAgent</span>
                   </div>
                   <div className="mt-4">
-                    <span className="code-property">agent</span> <span className="code-keyword">=</span>{' '}
+                    <span className="code-property">agent</span>{' '}
+                    <span className="code-keyword">=</span>{' '}
                     <span className="code-builtin">NexusAgent</span>
                     <span className="code-keyword">(</span>
                   </div>
@@ -371,9 +438,7 @@ export default function Home() {
                     <span className="code-keyword">=</span>
                     <span className="code-string">"nexus_agt_xxxx"</span>
                   </div>
-                  <div>
-                    <span className="code-keyword">)</span>
-                  </div>
+                  <div><span className="code-keyword">)</span></div>
                   <div className="mt-4">
                     <span className="code-keyword">@</span>
                     <span className="code-property">agent</span>
@@ -393,20 +458,24 @@ export default function Home() {
                     <span className="code-keyword">):</span>
                   </div>
                   <div className="ml-4">
-                    <span className="code-keyword">return</span> <span className="code-property">results</span>
+                    <span className="code-keyword">return</span>{' '}
+                    <span className="code-property">results</span>
                   </div>
                   <div className="mt-4">
-                    <span className="code-keyword">with</span> <span className="code-property">agent</span>
+                    <span className="code-keyword">with</span>{' '}
+                    <span className="code-property">agent</span>
                     <span className="code-keyword">.</span>
                     <span className="code-function">trace</span>
                     <span className="code-keyword">(</span>
                     <span className="code-string">"process_data"</span>
-                    <span className="code-keyword">)</span> <span className="code-keyword">as</span>{' '}
+                    <span className="code-keyword">)</span>{' '}
+                    <span className="code-keyword">as</span>{' '}
                     <span className="code-property">t</span>
                     <span className="code-keyword">:</span>
                   </div>
                   <div className="ml-4">
-                    <span className="code-property">result</span> <span className="code-keyword">=</span>{' '}
+                    <span className="code-property">result</span>{' '}
+                    <span className="code-keyword">=</span>{' '}
                     <span className="code-function">process_data</span>
                     <span className="code-keyword">()</span>
                   </div>
@@ -425,85 +494,69 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Pricing Section */}
+      {/* ══════════════════════════════
+          PRICING
+      ══════════════════════════════ */}
       <section className="py-20 bg-nexus-dark">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-4">
-            Simple, transparent pricing
-          </h2>
-          <p className="text-center text-nexus-text mb-16">
-            Choose the plan that fits your scale
-          </p>
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <p className="font-mono text-[10px] uppercase tracking-widest text-nexus-muted mb-3">Pricing</p>
+            <h2 className="font-mono text-3xl md:text-4xl font-bold text-white mb-3">
+              Simple, transparent pricing
+            </h2>
+            <p className="font-sans text-nexus-text text-sm">Choose the plan that fits your scale</p>
+          </div>
 
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-4 gap-5">
             {[
               {
                 name: 'Free',
                 price: '0',
-                period: '/mo',
-                features: [
-                  '3 agents',
-                  '10K logs/month',
-                  '7-day retention',
-                  'No alerts',
-                ],
+                features: ['3 agents', '10K logs/mo', '7-day retention', 'Community support'],
               },
               {
                 name: 'Starter',
                 price: '29',
-                period: '/mo',
-                features: [
-                  '10 agents',
-                  '100K logs/month',
-                  '30-day retention',
-                  'Email alerts',
-                ],
+                features: ['10 agents', '100K logs/mo', '30-day retention', 'Email alerts'],
               },
               {
                 name: 'Pro',
                 price: '99',
-                period: '/mo',
                 popular: true,
-                features: [
-                  '50 agents',
-                  '1M logs/month',
-                  '90-day retention',
-                  'Webhooks & alerts',
-                  'Custom integrations',
-                ],
+                features: ['50 agents', '1M logs/mo', '90-day retention', 'Webhooks', 'Custom integrations'],
               },
               {
                 name: 'Enterprise',
                 price: '499',
-                period: '/mo',
-                features: [
-                  'Unlimited agents',
-                  'Unlimited logs',
-                  '365-day retention',
-                  'Priority support',
-                  'SLA guarantees',
-                ],
+                features: ['Unlimited agents', 'Unlimited logs', '365-day retention', 'SLA', 'Dedicated support'],
               },
-            ].map((plan, index) => (
-              <div
-                key={index}
-                className={`pricing-card relative ${plan.popular ? 'featured' : ''}`}
-              >
-                {plan.popular && <div className="badge-popular">MOST POPULAR</div>}
-                <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
+            ].map((plan, i) => (
+              <div key={i} className={`pricing-card relative ${plan.popular ? 'featured' : ''}`}>
+                {plan.popular && (
+                  <div className="badge-popular">Most Popular</div>
+                )}
+
+                <p className="font-mono text-[10px] uppercase tracking-widest text-nexus-muted mb-2">
+                  {plan.name}
+                </p>
                 <div className="mb-6">
-                  <span className="text-4xl font-bold text-white">${plan.price}</span>
-                  <span className="text-nexus-muted">{plan.period}</span>
+                  <span className="font-mono text-4xl font-bold text-white">${plan.price}</span>
+                  <span className="font-mono text-xs text-nexus-muted">/mo</span>
                 </div>
-                <ul className="space-y-3 mb-8">
-                  {plan.features.map((feature, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <span className="text-blue-500 mt-0.5">✓</span>
-                      <span className="text-nexus-text text-sm">{feature}</span>
+
+                <ul className="space-y-2.5 mb-8">
+                  {plan.features.map((f, fi) => (
+                    <li key={fi} className="flex items-start gap-2">
+                      <span className="text-nexus-cyan mt-0.5 text-xs">✓</span>
+                      <span className="font-sans text-sm text-nexus-text">{f}</span>
                     </li>
                   ))}
                 </ul>
-                <Link href="#" className={plan.popular ? 'btn-primary block text-center' : 'btn-secondary block text-center'}>
+
+                <Link
+                  href="https://nexusos-dashboard.vercel.app/register"
+                  className={plan.popular ? 'btn-primary block text-center text-xs py-2' : 'btn-secondary block text-center text-xs py-2'}
+                >
                   Get Started
                 </Link>
               </div>
@@ -512,117 +565,95 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 blur-3xl" />
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Start monitoring your agents in 5 minutes
-            </h2>
-            <p className="text-lg text-nexus-text mb-8">
-              Join the developers already using NexusOS to ship AI agents with confidence.
-            </p>
-            <Link href="#" className="btn-primary text-lg">
-              Get Started Free <ArrowRight className="w-5 h-5 ml-2" />
-            </Link>
-          </div>
+      {/* ══════════════════════════════
+          CTA
+      ══════════════════════════════ */}
+      <section className="py-20 border-t border-nexus-border bg-nexus-darker relative overflow-hidden">
+        {/* Glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[200px] bg-nexus-cyan/[0.04] blur-[60px] pointer-events-none" />
+
+        <div className="max-w-3xl mx-auto px-6 lg:px-8 text-center relative z-10">
+          <p className="font-mono text-[10px] uppercase tracking-widest text-nexus-muted mb-4">
+            Get Started
+          </p>
+          <h2 className="font-mono text-3xl md:text-4xl font-bold text-white mb-4">
+            Start monitoring in 5 minutes
+          </h2>
+          <p className="font-sans text-nexus-text mb-8">
+            Join developers already using NexusOS to ship AI agents with confidence.
+          </p>
+          <Link
+            href="https://nexusos-dashboard.vercel.app/register"
+            className="btn-primary text-sm"
+          >
+            Get Started Free
+            <ArrowRight className="w-4 h-4 ml-2" />
+          </Link>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-nexus-darker border-t border-nexus-border py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-12 mb-12">
+      {/* ══════════════════════════════
+          FOOTER
+      ══════════════════════════════ */}
+      <footer className="bg-nexus-dark border-t border-nexus-border py-14">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid md:grid-cols-4 gap-10 mb-12">
+
+            {/* Brand */}
             <div>
-              <div className="flex items-center gap-2 font-bold text-white mb-4">
-                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center text-white font-bold">
-                  N
+              <div className="flex items-center gap-2.5 mb-4">
+                <div className="w-6 h-6 border border-nexus-cyan flex items-center justify-center">
+                  <span className="font-mono text-nexus-cyan text-[10px] font-bold">NX</span>
                 </div>
-                NexusOS
+                <span className="font-mono text-xs tracking-[0.2em] text-white uppercase">nexusos</span>
               </div>
-              <p className="text-nexus-text text-sm">
-                The control tower for your AI agents
+              <p className="font-sans text-sm text-nexus-text">
+                The control tower for your AI agents.
               </p>
             </div>
 
+            {/* Product */}
             <div>
-              <h4 className="text-white font-semibold mb-4">Product</h4>
-              <ul className="space-y-2 text-nexus-text text-sm">
-                <li>
-                  <a href="#features" className="hover:text-white transition-colors">
-                    Features
-                  </a>
-                </li>
-                <li>
-                  <Link href="/pricing" className="hover:text-white transition-colors">
-                    Pricing
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/docs" className="hover:text-white transition-colors">
-                    Documentation
-                  </Link>
-                </li>
+              <p className="font-mono text-[10px] uppercase tracking-widest text-nexus-muted mb-4">Product</p>
+              <ul className="space-y-2.5 font-sans text-sm text-nexus-text">
+                <li><a href="#features" className="hover:text-white transition-colors">Features</a></li>
+                <li><Link href="/pricing" className="hover:text-white transition-colors">Pricing</Link></li>
+                <li><Link href="/docs" className="hover:text-white transition-colors">Documentation</Link></li>
               </ul>
             </div>
 
+            {/* Company */}
             <div>
-              <h4 className="text-white font-semibold mb-4">Company</h4>
-              <ul className="space-y-2 text-nexus-text text-sm">
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    About
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Blog
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Careers
-                  </a>
-                </li>
+              <p className="font-mono text-[10px] uppercase tracking-widest text-nexus-muted mb-4">Company</p>
+              <ul className="space-y-2.5 font-sans text-sm text-nexus-text">
+                <li><a href="#" className="hover:text-white transition-colors">About</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Blog</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
               </ul>
             </div>
 
+            {/* Legal */}
             <div>
-              <h4 className="text-white font-semibold mb-4">Legal</h4>
-              <ul className="space-y-2 text-nexus-text text-sm">
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Privacy
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Terms
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Security
-                  </a>
-                </li>
+              <p className="font-mono text-[10px] uppercase tracking-widest text-nexus-muted mb-4">Legal</p>
+              <ul className="space-y-2.5 font-sans text-sm text-nexus-text">
+                <li><a href="#" className="hover:text-white transition-colors">Privacy</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Terms</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Security</a></li>
               </ul>
             </div>
           </div>
 
-          <div className="border-t border-nexus-border pt-8">
-            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              <p className="text-nexus-muted text-sm">
-                Copyright 2024 NexusOS. All rights reserved.
-              </p>
-              <div className="flex gap-6">
-                <a href="#" className="text-nexus-text hover:text-white transition-colors">
-                  <Github className="w-5 h-5" />
-                </a>
-                <a href="#" className="text-nexus-text hover:text-white transition-colors">
-                  <Twitter className="w-5 h-5" />
-                </a>
-              </div>
+          <div className="border-t border-nexus-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="font-mono text-[11px] text-nexus-muted">
+              © 2025 NexusOS. All rights reserved.
+            </p>
+            <div className="flex gap-5">
+              <a href="#" className="text-nexus-muted hover:text-white transition-colors">
+                <Github className="w-4 h-4" />
+              </a>
+              <a href="#" className="text-nexus-muted hover:text-white transition-colors">
+                <Twitter className="w-4 h-4" />
+              </a>
             </div>
           </div>
         </div>

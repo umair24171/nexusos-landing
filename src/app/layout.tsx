@@ -1,12 +1,24 @@
 import type { Metadata } from 'next'
+import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
 
+const geist = Geist({
+  subsets: ['latin'],
+  variable: '--font-geist',
+  display: 'swap',
+})
+
+const geistMono = Geist_Mono({
+  subsets: ['latin'],
+  variable: '--font-geist-mono',
+  display: 'swap',
+})
+
 export const metadata: Metadata = {
-  title: 'NexusOS - The Control Tower for Your AI Agents',
-  description: 'Ship AI agents with confidence. Get cryptographic identity, real-time audit logs, kill switches, and anomaly detection — in 3 lines of code.',
+  title: 'NexusOS — The Control Tower for Your AI Agents',
+  description: 'Ship AI agents with confidence. Cryptographic identity, real-time audit logs, kill switches, and anomaly detection — in 3 lines of code.',
   keywords: 'AI agents, monitoring, audit logs, kill switch, compliance',
   authors: [{ name: 'NexusOS' }],
-  viewport: 'width=device-width, initial-scale=1',
 }
 
 export default function RootLayout({
@@ -15,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${geist.variable} ${geistMono.variable}`}>
       <body className="bg-nexus-dark text-nexus-text font-sans antialiased">
         {children}
       </body>

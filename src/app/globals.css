@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ─────────────────────────────────────────
+   RESET
+───────────────────────────────────────── */
 * {
   margin: 0;
   padding: 0;
@@ -13,8 +16,8 @@ html {
 }
 
 body {
-  background-color: #0a0a0a;
-  color: #a1a1aa;
+  background-color: #000000;
+  color: #888888;
 }
 
 a {
@@ -26,143 +29,205 @@ button {
   font-family: inherit;
 }
 
-/* Syntax highlighting for code blocks */
-.code-keyword {
-  @apply text-blue-400;
+/* ─────────────────────────────────────────
+   SCROLLBAR
+───────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 3px;
+}
+::-webkit-scrollbar-thumb {
+  background: #1C1C1C;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00FFD1;
 }
 
-.code-string {
-  @apply text-green-400;
+/* ─────────────────────────────────────────
+   DOT GRID (hero background)
+───────────────────────────────────────── */
+.dot-grid {
+  background-image: radial-gradient(circle, #1a1a1a 1px, transparent 1px);
+  background-size: 28px 28px;
 }
 
-.code-function {
-  @apply text-cyan-400;
-}
+/* ─────────────────────────────────────────
+   TERMINAL CODE SYNTAX
+───────────────────────────────────────── */
+.code-keyword  { @apply text-nexus-cyan; }
+.code-string   { @apply text-nexus-green; }
+.code-function { @apply text-nexus-cyan/80; }
+.code-number   { @apply text-nexus-yellow; }
+.code-comment  { @apply text-nexus-muted; }
+.code-property { @apply text-white/80; }
+.code-builtin  { @apply text-white; }
 
-.code-number {
-  @apply text-yellow-400;
-}
-
-.code-comment {
-  @apply text-nexus-muted;
-}
-
-.code-property {
-  @apply text-blue-300;
-}
-
-.code-builtin {
-  @apply text-pink-400;
-}
-
-/* Terminal window styling */
+/* ─────────────────────────────────────────
+   TERMINAL WINDOW
+───────────────────────────────────────── */
 .terminal-window {
-  background-color: #111111;
-  border: 1px solid #27272a;
-  border-radius: 0.5rem;
+  background-color: #0D0D0D;
+  border: 1px solid #1C1C1C;
   overflow: hidden;
 }
 
 .terminal-header {
-  background-color: #1a1a1a;
-  padding: 0.75rem 1rem;
-  border-bottom: 1px solid #27272a;
+  background-color: #111111;
+  padding: 0.625rem 1rem;
+  border-bottom: 1px solid #1C1C1C;
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
 .terminal-dot {
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
 }
 
-.terminal-dot.red {
-  background-color: #ef4444;
-}
-
-.terminal-dot.yellow {
-  background-color: #eab308;
-}
-
-.terminal-dot.green {
-  background-color: #22c55e;
-}
+.terminal-dot.red    { background-color: #FF3B3B; opacity: 0.7; }
+.terminal-dot.yellow { background-color: #FFB800; opacity: 0.7; }
+.terminal-dot.green  { background-color: #00FF87; opacity: 0.7; }
 
 .terminal-content {
-  padding: 1.5rem;
-  font-family: 'Monaco', 'Courier New', monospace;
-  font-size: 0.875rem;
-  line-height: 1.6;
+  padding: 1.25rem 1.5rem;
+  font-family: var(--font-geist-mono), 'Courier New', monospace;
+  font-size: 0.8125rem;
+  line-height: 1.7;
   overflow-x: auto;
 }
 
-/* Gradient text */
+/* ─────────────────────────────────────────
+   TERMINAL CURSOR
+───────────────────────────────────────── */
+.cursor-blink {
+  display: inline-block;
+  width: 8px;
+  height: 14px;
+  background-color: #00FFD1;
+  animation: cursor-blink 1s step-end infinite;
+  vertical-align: text-bottom;
+  margin-left: 2px;
+}
+
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ─────────────────────────────────────────
+   LIVE INDICATOR
+───────────────────────────────────────── */
+.live-dot {
+  animation: live-blink 1.5s ease-in-out infinite;
+}
+
+@keyframes live-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.1; }
+}
+
+/* ─────────────────────────────────────────
+   GRADIENT TEXT (accent only)
+───────────────────────────────────────── */
 .gradient-text {
-  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  background: linear-gradient(135deg, #00FFD1 0%, #00B8FF 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Smooth hover effects */
-.hover-scale {
-  transition: transform 0.3s ease;
-}
-
-.hover-scale:hover {
-  transform: scale(1.05);
-}
-
-.hover-lift {
-  transition: all 0.3s ease;
-}
-
-.hover-lift:hover {
-  transform: translateY(-4px);
-}
-
-/* Button styles */
+/* ─────────────────────────────────────────
+   BUTTONS
+───────────────────────────────────────── */
 .btn-primary {
-  @apply inline-flex items-center justify-center px-6 py-2.5 rounded-lg bg-blue-600 text-white font-medium transition-all duration-200 hover:bg-blue-700 active:scale-95;
+  @apply inline-flex items-center justify-center px-6 py-2.5 bg-nexus-cyan text-black font-mono text-sm font-bold transition-all duration-150 hover:bg-nexus-cyan/90 active:scale-[0.98];
 }
 
 .btn-outline {
-  @apply inline-flex items-center justify-center px-6 py-2.5 rounded-lg border border-nexus-border text-nexus-text font-medium transition-all duration-200 hover:border-nexus-text hover:bg-nexus-card;
+  @apply inline-flex items-center justify-center px-6 py-2.5 border border-nexus-border font-mono text-sm text-nexus-text transition-all duration-150 hover:border-nexus-cyan/40 hover:text-white;
 }
 
 .btn-secondary {
-  @apply inline-flex items-center justify-center px-6 py-2.5 rounded-lg bg-nexus-card border border-nexus-border text-white font-medium transition-all duration-200 hover:border-blue-500 hover:bg-nexus-darker;
+  @apply inline-flex items-center justify-center px-6 py-2.5 border border-nexus-border font-mono text-sm text-white transition-all duration-150 hover:border-nexus-cyan/40;
 }
 
-/* Feature card */
+/* ─────────────────────────────────────────
+   FEATURE CARD
+───────────────────────────────────────── */
 .feature-card {
-  @apply p-6 rounded-lg border border-nexus-border bg-nexus-card transition-all duration-300 hover:border-blue-600 hover:bg-nexus-darker;
+  @apply p-6 border border-nexus-border bg-nexus-card transition-all duration-300;
+  border-top: 2px solid transparent;
 }
 
-/* Tab styling */
+.feature-card:hover {
+  border-color: #1C1C1C;
+  border-top-color: #00FFD1;
+}
+
+/* ─────────────────────────────────────────
+   TAB BUTTON
+───────────────────────────────────────── */
 .tab-button {
-  @apply px-4 py-2 rounded-lg border border-nexus-border text-nexus-text transition-all duration-200;
+  @apply px-4 py-2 font-mono text-sm text-nexus-text transition-all duration-150 border-b-2 border-transparent;
 }
 
 .tab-button.active {
-  @apply bg-blue-600 text-white border-blue-600;
+  @apply text-nexus-cyan border-b-2;
+  border-bottom-color: #00FFD1;
 }
 
 .tab-button:hover:not(.active) {
-  @apply border-nexus-text bg-nexus-card;
+  @apply text-white;
 }
 
-/* Pricing card */
+/* ─────────────────────────────────────────
+   PRICING CARD
+───────────────────────────────────────── */
 .pricing-card {
-  @apply p-8 rounded-lg border border-nexus-border bg-nexus-card transition-all duration-300;
+  @apply p-8 border border-nexus-border bg-nexus-card transition-all duration-300;
 }
 
 .pricing-card.featured {
-  @apply border-blue-600 bg-gradient-to-b from-nexus-card to-nexus-darker shadow-lg shadow-blue-600/20 scale-105;
+  border-color: rgba(0, 255, 209, 0.35);
+  box-shadow: 0 0 40px rgba(0, 255, 209, 0.1), 0 0 80px rgba(0, 255, 209, 0.04);
+}
+
+.pricing-card:hover:not(.featured) {
+  border-color: #333;
 }
 
 .badge-popular {
-  @apply absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-blue-600 text-white text-sm font-semibold;
+  @apply absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 bg-nexus-cyan text-black font-mono text-[10px] font-bold uppercase tracking-widest;
+}
+
+/* ─────────────────────────────────────────
+   PROBLEM CARD (red accent)
+───────────────────────────────────────── */
+.problem-card {
+  @apply p-6 border border-nexus-red/20 bg-nexus-red/5 transition-all duration-300;
+}
+
+.problem-card:hover {
+  border-color: rgba(255, 59, 59, 0.4);
+}
+
+/* ─────────────────────────────────────────
+   PAGE ENTRANCE
+───────────────────────────────────────── */
+.animate-enter {
+  animation: fade-in-up 0.5s ease-out;
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─────────────────────────────────────────
+   NAV LINK
+───────────────────────────────────────── */
+.nav-link {
+  @apply font-mono text-sm text-nexus-text hover:text-white transition-colors duration-150;
 }
