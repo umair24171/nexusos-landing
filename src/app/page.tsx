@@ -318,7 +318,7 @@ export default function Home() {
                     <span className="code-keyword">(</span>
                     <span className="code-string">'search_news'</span>
                     <span className="code-keyword">,</span>{' '}
-                    <span className="code-keyword">async</span> <span className="code-keyword">() =></span>{' '}
+                    <span className="code-keyword">async</span> <span className="code-keyword">() =&gt;</span>{' '}
                     <span className="code-keyword">{'{'}</span>
                   </div>
                   <div className="ml-4">

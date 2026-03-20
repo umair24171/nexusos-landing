@@ -230,7 +230,7 @@ export default function DocsPage() {
                     </div>
                     <div className="terminal-content">
                       <div>
-                        <span className="code-keyword">const</span> <span className="code-property">result</span> <span className="code-keyword">=</span> <span className="code-keyword">await</span> <span className="code-property">agent</span><span className="code-keyword">.</span><span className="code-function">trace</span><span className="code-keyword">('search', async () => {'{'}</span>
+                        <span className="code-keyword">const</span> <span className="code-property">result</span> <span className="code-keyword">=</span> <span className="code-keyword">await</span> <span className="code-property">agent</span><span className="code-keyword">.</span><span className="code-function">trace</span><span className="code-keyword">('search', async () =&gt; {'{'}</span>
                       </div>
                       <div className="ml-4">
                         <span className="code-keyword">return</span> <span className="code-keyword">await</span> <span className="code-function">searchAPI</span><span className="code-keyword">('query');</span>
