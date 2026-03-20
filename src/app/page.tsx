@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import {
   Lock,
-  LogSquare,
+  ScrollText,
   Zap,
   Shield,
   AlertTriangle,
@@ -200,7 +200,7 @@ export default function Home() {
                   'Every agent gets a unique cryptographic identity. Impossible to spoof, impossible to impersonate.',
               },
               {
-                icon: LogSquare,
+                icon: ScrollText,
                 title: 'Real-Time Audit Logs',
                 description:
                   'Every action your agent takes is logged immutably with a tamper-proof hash chain. Full forensics, always.',
