@@ -182,21 +182,6 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Stats row below terminal */}
-              <div className="grid grid-cols-3 gap-3 mt-4">
-                {[
-                  { label: "Agents Monitored", value: "12,400+" },
-                  { label: "Logs Processed",   value: "84M+"    },
-                  { label: "Kill Switches",     value: "99.9%"   },
-                ].map(({ label, value }) => (
-                  <div key={label} className="border border-nexus-border p-3 text-center">
-                    <p className="font-mono text-lg font-bold text-nexus-cyan">{value}</p>
-                    <p className="font-mono text-[9px] uppercase tracking-widest text-nexus-muted mt-0.5">
-                      {label}
-                    </p>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </div>
@@ -580,7 +565,7 @@ export default function Home() {
             Start monitoring in 5 minutes
           </h2>
           <p className="font-sans text-nexus-text mb-8">
-            Join developers already using NexusOS to ship AI agents with confidence.
+            Built for developers who take production seriously.
           </p>
           <Link
             href="https://app.nexusos.buildzn.com/register"
