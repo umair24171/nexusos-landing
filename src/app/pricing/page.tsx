@@ -375,7 +375,7 @@ export default function PricingPage() {
           <div className="border-t border-nexus-border pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <p className="text-nexus-muted text-sm">
-                Copyright 2024 NexusOS. All rights reserved.
+                Copyright 2026 NexusOS. All rights reserved.
               </p>
               <div className="flex gap-6">
                 <a href="#" className="text-nexus-text hover:text-white transition-colors">

@@ -645,7 +645,7 @@ export default function Home() {
 
           <div className="border-t border-nexus-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="font-mono text-[11px] text-nexus-muted">
-              © 2025 NexusOS. All rights reserved.
+              © 2026 NexusOS. All rights reserved.
             </p>
             <div className="flex gap-5">
               <a href="#" className="text-nexus-muted hover:text-white transition-colors">
