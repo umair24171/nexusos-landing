@@ -46,7 +46,7 @@ export default function Home() {
 
             {/* CTA */}
             <Link
-              href="https://app.nexusos.buildzn/register"
+              href="https://app.nexusos.buildzn.com/register"
               className="btn-primary text-xs py-2 px-5"
             >
               Get Started Free
@@ -90,7 +90,7 @@ export default function Home() {
 
               <div className="flex flex-col sm:flex-row gap-3 mb-6">
                 <Link
-                  href="https://app.nexusos.buildzn/register"
+                  href="https://app.nexusos.buildzn.com/register"
                   className="btn-primary"
                 >
                   Get Started Free
@@ -554,7 +554,7 @@ export default function Home() {
                 </ul>
 
                 <Link
-                  href="https://app.nexusos.buildzn/register"
+                  href="https://app.nexusos.buildzn.com/register"
                   className={plan.popular ? 'btn-primary block text-center text-xs py-2' : 'btn-secondary block text-center text-xs py-2'}
                 >
                   Get Started
@@ -583,7 +583,7 @@ export default function Home() {
             Join developers already using NexusOS to ship AI agents with confidence.
           </p>
           <Link
-            href="https://app.nexusos.buildzn/register"
+            href="https://app.nexusos.buildzn.com/register"
             className="btn-primary text-sm"
           >
             Get Started Free
