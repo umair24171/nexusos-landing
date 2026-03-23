@@ -4,6 +4,15 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import { ArrowRight, Check, Github, Twitter } from 'lucide-react'
 
+const DASHBOARD_URL = 'https://app.nexusos.buildzn.com'
+
+const PLAN_LINKS: Record<string, string> = {
+  Free:       `${DASHBOARD_URL}/register`,
+  Starter:    `${DASHBOARD_URL}/register?plan=starter`,
+  Pro:        `${DASHBOARD_URL}/register?plan=pro`,
+  Enterprise: `${DASHBOARD_URL}/register?plan=enterprise`,
+}
+
 export default function PricingPage() {
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'annual'>('monthly')
 
@@ -32,7 +41,7 @@ export default function PricingPage() {
               </Link>
             </div>
 
-            <Link href="#" className="btn-primary">
+            <Link href={`${DASHBOARD_URL}/register`} className="btn-primary">
               Get Started Free
             </Link>
           </div>
@@ -153,8 +162,8 @@ export default function PricingPage() {
                   <span className="text-4xl font-bold text-white">${plan.price}</span>
                   {plan.period && <span className="text-nexus-muted text-sm">{plan.period}</span>}
                 </div>
-                <Link href="#" className={plan.popular ? 'btn-primary block text-center mb-8' : 'btn-secondary block text-center mb-8'}>
-                  Get Started
+                <Link href={PLAN_LINKS[plan.name] ?? `${DASHBOARD_URL}/register`} className={plan.popular ? 'btn-primary block text-center mb-8' : 'btn-secondary block text-center mb-8'}>
+                  {plan.name === 'Free' ? 'Get Started Free' : plan.name === 'Enterprise' ? 'Contact Sales' : 'Get Started'}
                 </Link>
                 <ul className="space-y-3">
                   {plan.features.map((feature, i) => (
@@ -285,7 +294,7 @@ export default function PricingPage() {
             <p className="text-lg text-nexus-text mb-8">
               No credit card required. Upgrade anytime as you grow.
             </p>
-            <Link href="#" className="btn-primary text-lg">
+            <Link href={`${DASHBOARD_URL}/register`} className="btn-primary text-lg">
               Get Started Free <ArrowRight className="w-5 h-5 ml-2" />
             </Link>
           </div>
